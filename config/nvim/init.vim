@@ -19,7 +19,23 @@ Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'majutsushi/tagbar'
 Plug 'neoclide/coc.nvim'
+Plug 'nvim-treesitter/nvim-treesitter'
 
 :set completeopt-=preview
 
 call plug#end()
+
+
+colorscheme gruvbox
+
+lua << EOF
+require("nvim-treesitter.configs").setup({
+    ensure_installed = { "python", "php", "vim", "lua" },
+    sync_install = false,
+    auto_install = true,
+    highlight = {
+        enable = true,
+    },
+})
+EOF
+
