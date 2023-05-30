@@ -27,6 +27,13 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 
+" hotkeys
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+nnoremap <C-a> :NERDTreeToggle<CR>
+nnoremap <C-]> :TagbarToggle<CR>
+
+
+
 " unicode symbols
 let g:airline_left_sep = '»'
 let g:airline_left_sep = '▶'
@@ -65,7 +72,7 @@ colorscheme gruvbox
 
 lua << EOF
 require("nvim-treesitter.configs").setup({
-    ensure_installed = { "python", "php", "vim", "lua" },
+    ensure_installed = { "python", "php", "vim", "lua", "cpp" },
     sync_install = false,
     auto_install = true,
     highlight = {
